@@ -1,0 +1,6 @@
+[submodule "abstract-fhir-connector"]
+	path = abstract-fhir-connector
+	url = ssh://git@gitlab.sourceblock.de:6022/internal-rad-on-fhir/abstract-fhir-connector.git
+[submodule "medavis-connector"]
+	path = medavis-connector
+	url = ssh://git@gitlab.sourceblock.de:6022/internal-rad-on-fhir/medavis-connector.git
