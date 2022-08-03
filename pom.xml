@@ -25,7 +25,7 @@
         <spring-boot.version>2.7.1</spring-boot.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <hapifhir_version>6.0.0</hapifhir_version>
+        <hapifhir_version>6.0.4</hapifhir_version>
         <hapi.version.stable>2.3</hapi.version.stable>
     </properties>
 
