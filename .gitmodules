@@ -4,3 +4,6 @@
 [submodule "medavis-connector"]
 	path = medavis-connector
 	url = ssh://git@gitlab.sourceblock.de:6022/internal-rad-on-fhir/medavis-connector.git
+[submodule "mosaiq-connector"]
+	path = mosaiq-connector
+	url = ssh://git@gitlab.sourceblock.de:6022/internal-rad-on-fhir/mosaiq-connector.git
