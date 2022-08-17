@@ -7,3 +7,6 @@
 [submodule "mosaiq-connector"]
 	path = mosaiq-connector
 	url = ssh://git@gitlab.sourceblock.de:6022/internal-rad-on-fhir/mosaiq-connector.git
+[submodule "fhir-patient-linker"]
+	path = fhir-patient-linker
+	url = ssh://git@gitlab.sourceblock.de:6022/internal-rad-on-fhir/fhir-patient-linker.git

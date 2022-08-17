@@ -11,6 +11,8 @@
     <modules>
         <module>abstract-fhir-connector</module>
         <module>medavis-connector</module>
+        <module>mosaiq-connector</module>
+        <module>fhir-patient-linker</module>
     </modules>
 
     <parent>
