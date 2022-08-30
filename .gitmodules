@@ -1,9 +1,9 @@
 [submodule "abstract-fhir-connector"]
 	path = abstract-fhir-connector
-	url = ssh://git@gitlab.sourceblock.de:6022/internal-rad-on-fhir/abstract-fhir-connector.git
+	url = git@github.com:rad-on-fhir/abstract-fhir-connector.git
 [submodule "fhir-patient-linker"]
 	path = fhir-patient-linker
-	url = ssh://git@gitlab.sourceblock.de:6022/internal-rad-on-fhir/fhir-patient-linker.git
+	url = git@github.com:rad-on-fhir/fhir-patient-linker.git
 [submodule "basic-fhir-connector"]
 	path = basic-fhir-connector
 	url = git@github.com:rad-on-fhir/basic-fhir-connector.git
