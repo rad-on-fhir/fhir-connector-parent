@@ -7,3 +7,6 @@
 [submodule "basic-fhir-connector"]
 	path = basic-fhir-connector
 	url = git@github.com:rad-on-fhir/basic-fhir-connector.git
+[submodule "pink-ui"]
+	path = pink-ui
+	url = git@github.com:rad-on-fhir/PINK.ui.git
