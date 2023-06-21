@@ -9,3 +9,7 @@ cd ..
 cd fhir-patient-linker
 docker build -t srcblk/rad-on-fhir-patient-linker:latest .
 cd ..
+
+cd pink-ui
+docker build -t srcblk/ui-on-fhir:latest .
+cd ..
