@@ -1,14 +1,26 @@
 #!/bin/bash
 set -ex
-mvn clean package install
+echo "update project"
+git pull
+echo "Update all git submodules"
+git submodule update --init --recursive
 
-cd basic-fhir-connector
-docker build -t srcblk/rad-on-fhir-basic-connector:latest .
-cd ..
+#!/bin/bash
 
-cd fhir-patient-linker
-docker build -t srcblk/rad-on-fhir-patient-linker:latest .
-cd ..
+# Prüfen, ob unbestätigte Änderungen vorhanden sind
+if git diff-index --quiet HEAD --; then
+  echo "All changes are committed - building docker images"
+else
+  git status
+  echo "There are changed files - abort"
+  exit 1
+fi
+
+# Fortsetzung des Skripts ...
+
+
+docker build -t srcblk/rad-on-fhir-basic-connector:latest . --target connector-run
+docker build -t srcblk/rad-on-fhir-patient-linker:latest  . --target linker-run
 
 cd pink-ui
 docker build -t srcblk/ui-on-fhir:latest .
