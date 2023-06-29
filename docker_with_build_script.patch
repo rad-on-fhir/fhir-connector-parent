@@ -1,0 +1,52 @@
+Subject: [PATCH] docker with build script
+---
+Index: build.sh
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.sh b/build.sh
+new file mode 100755
+--- /dev/null	(date 1688028208407)
++++ b/build.sh	(date 1688028208407)
+@@ -0,0 +1,14 @@
++#!/usr/bin/env sh
++set -ex
++script_dir=$(dirname "$0")
++cd "$script_dir"
++echo "Install Dependencies"
++npm install --no-cache
++echo "Build..."
++npm run build
++echo "Reduce Node Modules"
++export NODE_ENV=production
++rm -rf node_modules
++echo "Re-Install Production Dependencies"
++npm install --no-cache
++rm -rf /root/.npm
+\ No newline at end of file
+Index: dockerfile
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/dockerfile b/dockerfile
+--- a/dockerfile	(revision 1c8cba76cf6d4431ba84a119583097e457ea92f0)
++++ b/dockerfile	(date 1688028208435)
+@@ -1,13 +1,10 @@
+ FROM node:18.16.0-alpine3.18@sha256:5e7724fe034d5693ffd3a2f925d6b1feea3f86096a414891c99e5de16aefc931 as ui-base
+ WORKDIR /usr/server/app
+-RUN npm install -g npm
++RUN npm install -g npm --no-cache
+ FROM ui-base as ui-build
+-COPY ./package.json ./
+-RUN npm install
++#COPY ./package.json ./
+ COPY ./ .
+-RUN npm run build
+-ENV NODE_ENV=production
+-RUN npm install
++RUN /usr/bin/env sh ./build.sh
+ FROM ui-build as ui-run
+ ENV NODE_ENV=production
+ CMD ["npm", "run", "start"]
